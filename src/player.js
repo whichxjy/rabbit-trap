@@ -26,12 +26,16 @@ class Player {
             }
         };
 
+        this.ground = () => {
+            this.jumping = false;
+        };
+
         this.moveLeft = () => {
             this.velocityX -= 0.5;
         };
 
         this.moveRight = () => {
-            this.velocityY += 0.5;
+            this.velocityX += 0.5;
         };
 
         this.update = () => {

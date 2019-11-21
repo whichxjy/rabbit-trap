@@ -5,11 +5,11 @@ class ButtonInput {
         this.down = false;
 
         // get input from keyboard
-        this.getInput = (down) => {
-            if (this.down != down) {
-                this.active = down;
+        this.getInput = (keydown) => {
+            if (this.down != keydown) {
+                this.active = keydown;
             }
-            this.down = down;
+            this.down = keydown;
         };
     }
 }
@@ -23,13 +23,11 @@ class Controller {
 
         // handle keyboard event
         this.keyDownUp = (event) => {
-            const down = (event.type === "keydown");
-            if (down) {
-                switch(event.keyCode) {
-                    case 37: this.leftButton.getInput(down); break;
-                    case 38: this.upButton.getInput(down); break;
-                    case 39: this.rightButton.getInput(down); break;
-                }
+            const keydown = (event.type === "keydown");
+            switch(event.keyCode) {
+                case 37: this.leftButton.getInput(keydown); break;
+                case 38: this.upButton.getInput(keydown); break;
+                case 39: this.rightButton.getInput(keydown); break;
             }
         }
     }

@@ -1,4 +1,6 @@
 window.addEventListener("load", _ => {
+    "use strict";
+
     // handle user input
     const controller = new Controller();
     // hold game logic
@@ -44,24 +46,27 @@ window.addEventListener("load", _ => {
     }
 
     // game engine
-    const engine = new Engine(2, gameUpdate, gameRender);
+    const engine = new Engine(1, gameUpdate, gameRender);
 
-    // handle events
-    window.addEventListener("keydown", event => {
+    // event handlers
+    const keyDownUp = (event) => {
         controller.keyDownUp(event);
-    });
-    window.addEventListener("keyup", event => {
-        controller.keyDownUp(event);
-    });
-    window.addEventListener("resize", _ => {
+    };
+    const resize = _ => {
         const clientWidth = document.documentElement.clientWidth;
         const clientHeight = document.documentElement.clientHeight;
         const heightWidthRatio = game.world.height / game.world.width;
-        display.resize(clientWidth, clientHeight, heightWidthRatio);
-    });
+        display.resize(clientWidth - 32, clientHeight - 32, heightWidthRatio);
+        display.render();
+    }
+
+    // handle events
+    window.addEventListener("keydown", keyDownUp);
+    window.addEventListener("keyup", keyDownUp);
+    window.addEventListener("resize", resize);
 
     // init
-    display.resize();
+    resize();
 
     // start game engine
     engine.start();

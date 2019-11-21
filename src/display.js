@@ -43,7 +43,6 @@ class Display {
                 this.context.canvas.height = clientHeight;
             }
             this.context.imageSmoothingEnabled = false;
-            this.render();
         };
     }
 }

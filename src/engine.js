@@ -35,13 +35,13 @@ class Engine {
             // call update function if enough time has passed
             while (this.accumulatedTime >= this.timeStep) {
                 this.accumulatedTime -= this.timeStep;
-                this.update(timeStamp);
+                this.update();
                 this.updated = true;
             }
 
             // only draw when the game has updated
             if (this.updated) {
-                this.render(timeStamp);
+                this.render();
                 this.updated = false;
             }
             this.animationFrameRequest = window.requestAnimationFrame(this.run);
