@@ -32,7 +32,8 @@ class Display {
                 0, 0, displayWidth, displayHeight
             );
         };
-    
+
+        // resize window
         this.resize = (clientWidth, clientHeight, heightWidthRatio) => {
             if (clientHeight / clientWidth > heightWidthRatio) {
                 this.context.canvas.width = clientWidth;

@@ -25,6 +25,7 @@ window.addEventListener("load", _ => {
         else if (controller.upButton.active) {
             // up button is pressed
             game.world.player.jump();
+            controller.upButton.active = false;
         }
         game.update();
     };
