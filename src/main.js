@@ -32,15 +32,16 @@ window.addEventListener("load", _ => {
 
     // render function for the game
     const gameRender = () => {
-        // fill background
-        display.fill(game.world.backgroundColor);
+        // drwa game map
+        display.drawMap(
+            game.world.gameMap,
+            game.world.column
+        );
         // draw player
-        display.drawRectangle(
-            game.world.player.posX,
-            game.world.player.posY,
-            game.world.player.width,
-            game.world.player.height,
-            game.world.player.color
+        display.drawPlayer(
+            game.world.player,
+            game.world.player.color1,
+            game.world.player.color2
         );
         // render
         display.render();
@@ -61,14 +62,21 @@ window.addEventListener("load", _ => {
         display.render();
     }
 
-    // handle events
+    // handle events from user
     window.addEventListener("keydown", keyDownUp);
     window.addEventListener("keyup", keyDownUp);
     window.addEventListener("resize", resize);
 
-    // init
-    resize();
+    // start the game after the game map has been loaded
+    display.tileSheet.image.addEventListener("load", _ => {
+        // init
+        resize();
+        // start game engine
+        engine.start();
+    }, {
+        once: true
+    });
 
-    // start game engine
-    engine.start();
+    // load game map
+    display.tileSheet.image.src = "rabbit-trap.png";
 });

@@ -1,8 +1,10 @@
 class Player {
     constructor() {
-        this.color = "#FF0000";
-        this.width = 16;
-        this.height = 16;
+        this.color1 = "#404040";
+        this.color2 = "#F0F0F0";
+
+        this.width = 12;
+        this.height = 12;
 
         this.posX = 100;
         this.posY = 50;
@@ -15,11 +17,6 @@ class Player {
 
         this.jump = () => {
             if (!this.jumping) {
-                // random color
-                this.color = "#" + Math.floor(Math.random() * 16777216).toString(16);
-                if (this.color.length < 7) {
-                    this.color = this.color.slice(0, 1) + "0" + this.color.slice(1, 6);
-                }
                 // jump
                 this.jumping = true;
                 this.velocityY -= this.jumpPower;

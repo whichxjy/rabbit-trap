@@ -1,10 +1,32 @@
 class World {
-    constructor() {
-        this.backgroundColor = "rgba(40, 48, 56, 0.25)";
-        this.gravity = 3;
-        this.friction = 0.9;
-        this.height = 72;
-        this.width = 128;
+    constructor(gravity = 3, friction = 0.9) {
+        // forces
+        this.gravity = gravity;
+        this.friction = friction;
+
+        // the number of rows in the game map
+        this.row = 9;
+        // the number of columns in the game map
+        this.column = 12;
+
+        // the size of each tile (size = height = width)
+        this.tileSize = 16;
+        // the width of the game map
+        this.width = this.column * this.tileSize;
+        // the height of the game map
+        this.height = this.row * this.tileSize;
+        // game map
+        this.gameMap = [
+            48, 17, 17, 17, 49, 48, 18, 19, 16, 17, 35, 36,
+            10, 39, 39, 39, 16, 18, 39, 31, 31, 31, 39,  7,
+            10, 31, 39, 31, 31, 31, 39, 12,  5,  5, 28,  1,
+            35,  6, 39, 39, 31, 39, 39, 19, 39, 39,  8,  9,
+             2, 31, 31, 47, 39, 47, 39, 31, 31,  4, 36, 25,
+            10, 39, 39, 31, 39, 39, 39, 31, 31, 31, 39, 37,
+            10, 39, 31,  4, 14,  6, 39, 39,  3, 39,  0, 42,
+            49,  2, 31, 31, 11, 39, 39, 31, 11,  0, 42,  9,
+             8, 40, 27, 13, 37, 27, 13,  3, 22, 34,  9, 24
+        ];
 
         this.player = new Player();
 
