@@ -78,5 +78,5 @@ window.addEventListener("load", _ => {
     });
 
     // load game map
-    display.tileSheet.image.src = "rabbit-trap.png";
+    display.tileSheet.image.src = "assert/rabbit-trap.png";
 });
