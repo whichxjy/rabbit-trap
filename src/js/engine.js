@@ -24,7 +24,7 @@ class Engine {
 
         // run engine
         this.run = (timeStamp) => {
-            this.accumulatedTime = (timeStamp - this.recentTime);
+            this.accumulatedTime += (timeStamp - this.recentTime);
             this.recentTime = timeStamp;
 
             // never allow three full frames to pass without an update
