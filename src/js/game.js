@@ -1,10 +1,14 @@
-class Game {
-    constructor() {
-        this.world = new World();
+import { World } from './world.js'
 
-        // update game state
-        this.update = () => {
-            this.world.update();
-        };
+class Game {
+  constructor () {
+    this.world = new World()
+
+    // update game state
+    this.update = () => {
+      this.world.update()
     }
+  }
 }
+
+export { Game }
